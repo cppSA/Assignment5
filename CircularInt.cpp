@@ -359,9 +359,12 @@ istream& operator>> (istream& is,CircularInt& c) {
     if (tmp>=c.min && tmp<=c.max){
         c.pos=tmp;
         return is;
+    }else{
+        c.pos=c.normalization(c.min,c.max,tmp);
+        return is;
     }
-    string ans = "New pos larger than MAX! or new pos smaller than MIN!";
-    throw ans; 
+    // string ans = "New pos larger than MAX! or new pos smaller than MIN!";
+    // throw ans; 
 }
 //-------------------------------------
 // friend global binary operators

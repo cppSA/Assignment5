@@ -48,7 +48,7 @@ class CircularInt{
         CircularInt& operator&=(const int& other);
 
         //Overloading for '&=' operator for hour type! (using & function) (CircularInt)
-        CircularInt& CircularInt::operator&=(const CircularInt& other);
+        CircularInt& operator&=(const CircularInt& other);
 
         //Overloading for '|=' operator for hour type! (using | function)
         CircularInt& operator|=(const int& other);
@@ -60,7 +60,7 @@ class CircularInt{
         CircularInt& operator^=(const int& other);
 
         //Overloading for '^=' operator for hour type! (using ^ function) (CircularInt)
-        CircularInt& CircularInt::operator^=(const CircularInt& other);
+        CircularInt& operator^=(const CircularInt& other);
 
         //Overloading for '<<=' operator for hour type! (using << function)
         CircularInt& operator<<=(const int& other);

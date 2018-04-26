@@ -471,6 +471,16 @@ bool operator != (const CircularInt& a, const CircularInt& b){
     return !(a==b);
 }
 
+//Overloading for '!=' operator for hour type! (CircularInt and int)
+bool operator != (const CircularInt& a, const int& b){
+    return !(a==b);
+}
+
+//Overloading for '!=' operator for hour type! (Int and CircularInt )
+bool operator != (const int& a, const CircularInt& b){
+    return !(a==b);
+}
+
 //Overloading for '>' operator for hour type! (Two CircularInt types)
 bool operator > (const CircularInt& a, const CircularInt& b){
     if (a.max==b.max && a.min==b.min && a.pos>b.pos){ //we have decided that it is not relevant to compare two types
@@ -483,6 +493,24 @@ bool operator > (const CircularInt& a, const CircularInt& b){
         throw ans;
     }
 
+}
+
+//Overloading for '>' operator for hour type! (CircularInt and int)
+bool operator > (const CircularInt& a, const int& b){
+    if (a.pos>b){                          
+        return true;                                   
+    }
+    else
+        return false;
+}
+
+//Overloading for '>' operator for hour type! (int and CircularInt)
+bool operator > (const int& b, const CircularInt& a){
+    if (a.pos<b){                          
+        return true;                                   
+    }
+    else
+        return false;
 }
 
 //Overloading for '<' operator for hour type! (Two CircularInt types)
@@ -498,9 +526,39 @@ bool operator < (const CircularInt& a, const CircularInt& b){
     }
 }
 
+//Overloading for '<' operator for hour type! (CircularInt and int)
+bool operator < (const CircularInt& a, const int& b){
+     if (a.pos<b){
+        return true;                                   
+    }
+    else{
+        return false;
+    }
+}
+
+//Overloading for '<' operator for hour type! (Int and CircularInt)
+bool operator < (const int& b, const CircularInt& a){
+     if (b<a.pos){
+        return true;                                   
+    }
+    else{
+        return false;
+    }
+}
+
 //Overloading for '>=' operator for hour type! (Two CircularInt types)
 bool operator >= (const CircularInt& a, const CircularInt& b){
      return (a>b || a==b);
+}
+
+//Overloading for '>=' operator for hour type! (CircularInt and int)
+bool operator >= (const CircularInt& a, const int& b){
+     return (a>b || a==b);
+}
+
+//Overloading for '>=' operator for hour type! (Int and CircularInt)
+bool operator >= (const int& b, const CircularInt& a){
+     return (b>a || b==a);
 }
 
 //Overloading for '<=' operator for hour type! (Two CircularInt types)
@@ -508,17 +566,20 @@ bool operator <= (const CircularInt& a, const CircularInt& b){
      return (a<b || a==b);
 }
 
+//Overloading for '<=' operator for hour type! (CircularInt and int)
+bool operator <= (const CircularInt& a, const int& b){
+     return (a<b || a==b);
+}
+
+//Overloading for '<=' operator for hour type! (Int and CircularInt)
+bool operator <= (const int& b, const CircularInt& b){
+     return (b<a || b==a);
+}
+
 //Overloading for '%' operator for hour type! (CircularInt and int)
 const CircularInt operator%(const CircularInt& a, const int& mod) {
     CircularInt tmp{a.min,a.max};
     tmp.pos=tmp.modulo(a.min, a.max, a.pos, mod);
-    return tmp;  
-}
-
-//Overloading for '%' operator for hour type! (int and CircularInt)
-const CircularInt operator%(const int& mod, const CircularInt& a) {
-    CircularInt tmp{a.min,a.max};
-    tmp.pos=tmp.modulo(a.min, a.max, mod, a.pos);
     return tmp;  
 }
 

@@ -115,15 +115,24 @@ class CircularInt{
         friend const CircularInt operator / (const CircularInt& a, const CircularInt& b);
         friend const CircularInt operator / (const int& div, const CircularInt& b);
         friend const CircularInt operator / (const CircularInt& a,const int& div);
-        friend const CircularInt operator % (const CircularInt& a, const int& mod);
         friend bool operator == (const CircularInt& a, const CircularInt& b);
         friend bool operator == (const int& b, const CircularInt& a);
         friend bool operator == (const CircularInt& a, const int& b);
         friend bool operator != (const CircularInt& a, const CircularInt& b);
+        friend bool operator != (const CircularInt& a, const int& b);
+        friend bool operator != (const int& a, const CircularInt& b);
         friend bool operator > (const CircularInt& a, const CircularInt& b);
+        friend bool operator > (const CircularInt& a, const int& b);
+        friend bool operator > (const int& b, const CircularInt& a);
         friend bool operator < (const CircularInt& a, const CircularInt& b);
+        friend bool operator < (const CircularInt& a, const int& b);
+        friend bool operator < (const int& b, const CircularInt& a);
         friend bool operator >= (const CircularInt& a, const CircularInt& b);
+        friend bool operator >= (const CircularInt& a, const int& b);
+        friend bool operator >= (const int& b, const CircularInt& a);
         friend bool operator <= (const CircularInt& a, const CircularInt& b);
+        friend bool operator <= (const CircularInt& a, const int& b);
+        friend bool operator <= (const int& b, const CircularInt& b);
         friend const CircularInt operator%(const CircularInt& a, const int& mod);
         friend const CircularInt operator%(const int& mod, const CircularInt& a);
         friend const CircularInt operator%(const CircularInt& a, const CircularInt& b);
@@ -142,6 +151,9 @@ class CircularInt{
         friend const CircularInt operator>>(const CircularInt& a, const CircularInt& b);
         friend const CircularInt operator>>(const int& a, const CircularInt& b);
         friend const CircularInt operator>>(const CircularInt& a, const int& b);
+
+
+        
 };
 //----------------------------------------
 // friend global IO operators
@@ -199,17 +211,48 @@ bool operator == (const int& b, const CircularInt& a);
 //Overloading for '!=' operator for hour type! (Two CircularInt types)
 bool operator != (const CircularInt& a, const CircularInt& b);
 
+//Overloading for '!=' operator for hour type! (CircularInt and int)
+bool operator != (const CircularInt& a, const int& b);
+
+//Overloading for '!=' operator for hour type! (Int and CircularInt )
+bool operator != (const int& a, const CircularInt& b);
+
 //Overloading for '>' operator for hour type! (Two CircularInt types)
 bool operator > (const CircularInt& a, const CircularInt& b);
+
+//Overloading for '>' operator for hour type! (CircularInt and int)
+bool operator > (const CircularInt& a, const int& b);
+
+//Overloading for '>' operator for hour type! (int and CircularInt)
+bool operator > (const int& b, const CircularInt& a);
 
 //Overloading for '<' operator for hour type! (Two CircularInt types)
 bool operator < (const CircularInt& a, const CircularInt& b);
 
+//Overloading for '<' operator for hour type! (CircularInt and int)
+bool operator < (const CircularInt& a, const int& b);
+
+//Overloading for '<' operator for hour type! (Int and CircularInt)
+bool operator < (const int& b, const CircularInt& a);
+
 //Overloading for '>=' operator for hour type! (Two CircularInt types)
 bool operator >= (const CircularInt& a, const CircularInt& b);
 
+//Overloading for '>=' operator for hour type! (CircularInt and int)
+bool operator >= (const CircularInt& a, const int& b);
+
+//Overloading for '>=' operator for hour type! (Int and CircularInt)
+bool operator >= (const int& b, const CircularInt& a);
+
+
 //Overloading for '<=' operator for hour type! (Two CircularInt types)
 bool operator <= (const CircularInt& a, const CircularInt& b);
+
+//Overloading for '<=' operator for hour type! (CircularInt and int)
+bool operator <= (const CircularInt& a, const int& b);
+
+//Overloading for '<=' operator for hour type! (Int and CircularInt)
+bool operator <= (const int& b, const CircularInt& b);
 
 //Overloading for '%' operator for hour type!
 const CircularInt operator%(const CircularInt& a, const int& mod);

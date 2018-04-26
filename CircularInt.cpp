@@ -489,8 +489,9 @@ bool operator > (const CircularInt& a, const CircularInt& b){
     else{
         if (a.max==b.max && a.min==b.min && a.pos<=b.pos)
             return false;
-        string ans = "The objects are not from the same range!";
-        throw ans;
+        return false;
+        // string ans = "The objects are not from the same range!";
+        // throw ans;
     }
 
 }
@@ -521,8 +522,9 @@ bool operator < (const CircularInt& a, const CircularInt& b){
     else{
         if (a.max==b.max && a.min==b.min && a.pos>=b.pos)
             return false;
-        string ans = "The objects are not from the same range!";
-        throw ans;
+        return false;
+        // string ans = "The objects are not from the same range!";
+        // throw ans;
     }
 }
 

@@ -132,7 +132,7 @@ class CircularInt{
         friend bool operator >= (const int& b, const CircularInt& a);
         friend bool operator <= (const CircularInt& a, const CircularInt& b);
         friend bool operator <= (const CircularInt& a, const int& b);
-        friend bool operator <= (const int& b, const CircularInt& b);
+        friend bool operator <= (const int& b, const CircularInt& a);
         friend const CircularInt operator%(const CircularInt& a, const int& mod);
         friend const CircularInt operator%(const int& mod, const CircularInt& a);
         friend const CircularInt operator%(const CircularInt& a, const CircularInt& b);
@@ -252,7 +252,7 @@ bool operator <= (const CircularInt& a, const CircularInt& b);
 bool operator <= (const CircularInt& a, const int& b);
 
 //Overloading for '<=' operator for hour type! (Int and CircularInt)
-bool operator <= (const int& b, const CircularInt& b);
+bool operator <= (const int& b, const CircularInt& a);
 
 //Overloading for '%' operator for hour type!
 const CircularInt operator%(const CircularInt& a, const int& mod);

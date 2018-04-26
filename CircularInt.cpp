@@ -572,7 +572,7 @@ bool operator <= (const CircularInt& a, const int& b){
 }
 
 //Overloading for '<=' operator for hour type! (Int and CircularInt)
-bool operator <= (const int& b, const CircularInt& b){
+bool operator <= (const int& b, const CircularInt& a){
      return (b<a || b==a);
 }
 

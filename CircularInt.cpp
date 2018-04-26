@@ -270,6 +270,8 @@ CircularInt& CircularInt::operator =(const CircularInt& other){
 CircularInt& CircularInt::operator =(const int& other){
     if (other>=this->min && other<=this->max){
         this->pos = other;
+    }else{
+        this->pos=this->normalization(this->min,this->max,other);
     }
     return *this;
 }

@@ -86,9 +86,7 @@ int CircularInt::modulo(int min, int max, int pos, int mod){
 //normaliztion function - this function normalizes a number to the relevant range
 //helpful especially for bitwise operations in our code
 int CircularInt::normalization(int min, int max, int num){
-    printf("start   %d",num);
     if (num > max){
-        printf("max\n");
         while (num>max){
             num = num - max;
             num = num + min -1;
@@ -96,13 +94,11 @@ int CircularInt::normalization(int min, int max, int num){
         return num;  
     }
     if (num < min){
-        printf("min\n");
         while (num < min){
             num = num - min;
             num = max + num + 1;
         }
     }
-    printf("   %d end\n",num);
     return num;
 }
 

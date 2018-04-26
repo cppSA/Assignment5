@@ -123,9 +123,23 @@ CircularInt& CircularInt::operator&=(const int& other) {
     return (*this);
 }
 
+//Overloading for '&=' operator for hour type! (using & function) (CircularInt)
+CircularInt& CircularInt::operator&=(const CircularInt& other) {
+    CircularInt temp = *this&other.pos;
+    this->pos = temp.pos;
+    return (*this);
+}
+
 //Overloading for '|=' operator for hour type! (using | function)
 CircularInt& CircularInt::operator|=(const int& other) {
     CircularInt temp = *this|other;
+    this->pos = temp.pos;
+    return (*this);
+}
+
+//Overloading for '|=' operator for hour type! (using | function) (CircularInt)
+CircularInt& CircularInt::operator|=(const CircularInt& other) {
+    CircularInt temp = *this|other.pos;
     this->pos = temp.pos;
     return (*this);
 }
@@ -137,6 +151,13 @@ CircularInt& CircularInt::operator^=(const int& other) {
     return (*this);
 }
 
+//Overloading for '^=' operator for hour type! (using ^ function) (CircularInt)
+CircularInt& CircularInt::operator^=(const CircularInt& other) {
+    CircularInt temp = *this^other.pos;
+    this->pos = temp.pos;
+    return (*this);
+}
+
 //Overloading for '<<=' operator for hour type! (using << function)
 CircularInt& CircularInt::operator<<=(const int& other) {
     CircularInt temp = *this<<other;
@@ -144,9 +165,23 @@ CircularInt& CircularInt::operator<<=(const int& other) {
     return (*this);
 }
 
+//Overloading for '<<=' operator for hour type! (using << function) (CircularInt)
+CircularInt& CircularInt::operator<<=(const CircularInt& other) {
+    CircularInt temp = *this<<other.pos;
+    this->pos = temp.pos;
+    return (*this);
+}
+
 //Overloading for '>>=' operator for hour type! (using >> function)
 CircularInt& CircularInt::operator>>=(const int& other) {
     CircularInt temp = *this>>other;
+    this->pos = temp.pos;
+    return (*this);
+}
+
+//Overloading for '>>=' operator for hour type! (using >> function) (CircularInt)
+CircularInt& CircularInt::operator>>=(const CircularInt& other) {
+    CircularInt temp = *this>>other.pos;
     this->pos = temp.pos;
     return (*this);
 }
@@ -162,6 +197,17 @@ CircularInt& CircularInt::operator+=(const int& other) {
     return (*this);
 }
 
+//Overloading for '+=' operator for hour type! (using plus/minus functions) (CircularInt)
+CircularInt& CircularInt::operator+=(const CircularInt& other) {
+    if (other.pos>=0)
+        this->pos=plus(this->min, this->max, this->pos, other.pos);
+    else{
+        int tmp=other.pos*(-1);
+        this->pos=minus(this->min, this->max, this->pos, tmp);
+    }
+    return (*this);
+}
+
 //Overloading for '-=' operator for hour type! (using plus/minus functions)
 CircularInt& CircularInt::operator-=(const int& other) {
     if (other < 0){
@@ -169,6 +215,17 @@ CircularInt& CircularInt::operator-=(const int& other) {
     }
     else{
         this->pos=minus(this->min, this->max, this->pos, other);
+    }
+    return (*this);
+}
+
+//Overloading for '-=' operator for hour type! (using plus/minus functions) (CircularInt)
+CircularInt& CircularInt::operator-=(const CircularInt& other) {
+    if (other.pos < 0){
+        this->pos=plus(this->min, this->max, this->pos, other.pos*(-1));
+    }
+    else{
+        this->pos=minus(this->min, this->max, this->pos, other.pos);
     }
     return (*this);
 }
@@ -221,7 +278,7 @@ CircularInt& CircularInt::operator =(const int& other){
     return *this;
 }
 
-//Overloading for '*=' operator for hour type!
+//Overloading for '*=' operator for hour type!(int)
 CircularInt& CircularInt::operator*=(const int& mult) {
     int tmp;
     if (mult < 0){
@@ -236,7 +293,22 @@ CircularInt& CircularInt::operator*=(const int& mult) {
     return (*this);
 }
 
-//Overloading for '/=' operator for hour type!
+//Overloading for '*=' operator for hour type!(CircularInt)
+CircularInt& CircularInt::operator*=(const CircularInt& mult) {
+    int tmp;
+    if (mult.pos < 0){
+        tmp=multiply(this->min, this->max, this->pos, mult.pos*(-1));
+        this->pos=tmp;
+        this->pos=this->operator-();
+    }
+    else{
+        tmp=multiply(this->min, this->max, this->pos, mult.pos);
+        this->pos=tmp;
+    }
+    return (*this);
+}
+
+//Overloading for '/=' operator for hour type! (int)
 CircularInt& CircularInt::operator/=(const int& div) {
     CircularInt tmp{this->min,this->max};
     if (div > 0){
@@ -249,13 +321,30 @@ CircularInt& CircularInt::operator/=(const int& div) {
     return (*this);
 }
 
-//Overloading for '%=' operator for hour type!
+//Overloading for '/=' operator for hour type! (CircularInt)
+CircularInt& CircularInt::operator/=(const CircularInt& div) {
+    CircularInt tmp{this->min,this->max};
+    if (div.pos > 0){
+        this->pos=tmp.divide(this->min, this->max, this->pos, div.pos);
+    }
+    else{
+        this->pos=tmp.divide(this->min, this->max, this->pos, div.pos*(-1));
+        this->pos=this->operator-();
+    }
+    return (*this);
+}
+
+//Overloading for '%=' operator for hour type! (int)
 CircularInt& CircularInt::operator%=(const int& mod) {
     this->pos=modulo(this->min, this->max, this->pos, mod);
     return (*this);
 }
 
-
+//Overloading for '%=' operator for hour type! (CircularInt)
+CircularInt& CircularInt::operator%=(const CircularInt& mod) {
+    this->pos=modulo(this->min, this->max, this->pos, mod.pos);
+    return (*this);
+}
 
 //----------------------------------------
 // friend global IO operators

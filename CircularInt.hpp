@@ -47,32 +47,62 @@ class CircularInt{
         //Overloading for '&=' operator for hour type! (using & function)
         CircularInt& operator&=(const int& other);
 
+        //Overloading for '&=' operator for hour type! (using & function) (CircularInt)
+        CircularInt& CircularInt::operator&=(const CircularInt& other);
+
         //Overloading for '|=' operator for hour type! (using | function)
         CircularInt& operator|=(const int& other);
+
+        //Overloading for '|=' operator for hour type! (using | function) (CircularInt)
+        CircularInt& operator|=(const CircularInt& other);
 
         //Overloading for '^=' operator for hour type! (using ^ function)
         CircularInt& operator^=(const int& other);
 
+        //Overloading for '^=' operator for hour type! (using ^ function) (CircularInt)
+        CircularInt& CircularInt::operator^=(const CircularInt& other);
+
         //Overloading for '<<=' operator for hour type! (using << function)
         CircularInt& operator<<=(const int& other);
+
+        //Overloading for '<<=' operator for hour type! (using << function) (CircularInt)
+        CircularInt& operator<<=(const CircularInt& other);
 
         //Overloading for '>>=' operator for hour type! (using >> function)
         CircularInt& operator>>=(const int& other);
 
+        //Overloading for '>>=' operator for hour type! (using >> function) (CircularInt)
+        CircularInt& operator>>=(const CircularInt& other);
+
         //Overloading for '+=' operator for hour type!
         CircularInt& operator+=(const int& other);
 
+        //Overloading for '+=' operator for hour type! (using plus/minus functions) (CircularInt)
+        CircularInt& operator+=(const CircularInt& other);
+
         //Overloading for '-=' operator for hour type!
         CircularInt& operator-=(const int& other);
+        
+        //Overloading for '-=' operator for hour type! (using plus/minus functions) (CircularInt)
+        CircularInt& operator-=(const CircularInt& other);
 
         //Overloading for '*=' operator for hour type!
         CircularInt& operator*=(const int& mult);
 
+        //Overloading for '*=' operator for hour type!(CircularInt)
+        CircularInt& operator*=(const CircularInt& mult);
+
         //Overloading for '/=' operator for hour type!
         CircularInt& operator/=(const int& div);
 
+        //Overloading for '/=' operator for hour type! (CircularInt)
+        CircularInt& operator/=(const CircularInt& div);
+
         //Overloading for '%=' operator for hour type!
         CircularInt& operator%=(const int& mod);
+
+        //Overloading for '%=' operator for hour type! (CircularInt)
+        CircularInt& operator%=(const CircularInt& mod);
 
         //Overloading for 'var++' operator for hour type!
         int operator++(int);

@@ -285,7 +285,8 @@ CircularInt& CircularInt::operator*=(const int& mult) {
         this->pos=this->operator-();
     }
     else{
-        tmp=multiply(this->min, this->max, this->pos, mult);
+        tmp=this->normalization(this->min, this->max, this->pos*mult);
+        //tmp=multiply(this->min, this->max, this->pos, mult);
         this->pos=tmp;
     }
     return (*this);
@@ -300,7 +301,8 @@ CircularInt& CircularInt::operator*=(const CircularInt& mult) {
         this->pos=this->operator-();
     }
     else{
-        tmp=multiply(this->min, this->max, this->pos, mult.pos);
+        tmp=this->normalization(this->min, this->max, this->pos*mult.pos);
+        //tmp=multiply(this->min, this->max, this->pos, mult.pos);
         this->pos=tmp;
     }
     return (*this);

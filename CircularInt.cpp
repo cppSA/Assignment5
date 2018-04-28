@@ -1,7 +1,7 @@
 /**
 *cpp file of class CircularInt
 *Authors Alexey Titov and Shir Bentabou
-*Version 2.0
+*Version 3.0
 **/
 //libraries
 #include "CircularInt.hpp"
@@ -455,8 +455,9 @@ const CircularInt operator*(const CircularInt& a, const CircularInt& b){
         tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos);
     }
     else{
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos*(-1));
-        tmp=tmp.operator-();
+        tmp.pos=tmp.normalization(tmp.min,tmp.max,a.pos*b.pos);
+        // tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos*(-1));
+        // tmp=tmp.operator-();
     }
     return tmp;
 }
@@ -468,8 +469,9 @@ const CircularInt operator*(const int& a, const CircularInt& b){
         tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
     }
     else{
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
-        tmp=tmp.operator-();
+        tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
+        // tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
+        // tmp=tmp.operator-();
     }
     return tmp;
 }
@@ -481,8 +483,9 @@ const CircularInt operator*(const CircularInt& b, const int& a){
         tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
     }
     else{
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
-        tmp=tmp.operator-();
+        tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
+        // tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
+        // tmp=tmp.operator-();
     }
     return tmp;
 }

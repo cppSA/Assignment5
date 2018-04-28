@@ -279,32 +279,32 @@ CircularInt& CircularInt::operator =(const int& other){
 //Overloading for '*=' operator for hour type!(int)
 CircularInt& CircularInt::operator*=(const int& mult) {
     int tmp;
-    if (mult < 0){
-        tmp=multiply(this->min, this->max, this->pos, mult*(-1));
-        this->pos=tmp;
-        this->pos=this->operator-();
-    }
-    else{
-        tmp=this->normalization(this->min, this->max, this->pos*mult);
-        //tmp=multiply(this->min, this->max, this->pos, mult);
-        this->pos=tmp;
-    }
+    tmp=this->normalization(this->min, this->max, this->pos*mult);
+    // if (mult < 0){
+    //     tmp=multiply(this->min, this->max, this->pos, mult*(-1));
+    //     this->pos=tmp;
+    //     this->pos=this->operator-();
+    // }
+    // else{
+    //     tmp=multiply(this->min, this->max, this->pos, mult);
+    //     this->pos=tmp;
+    // }
     return (*this);
 }
 
 //Overloading for '*=' operator for hour type!(CircularInt)
 CircularInt& CircularInt::operator*=(const CircularInt& mult) {
     int tmp;
-    if (mult.pos < 0){
-        tmp=multiply(this->min, this->max, this->pos, mult.pos*(-1));
-        this->pos=tmp;
-        this->pos=this->operator-();
-    }
-    else{
-        tmp=this->normalization(this->min, this->max, this->pos*mult.pos);
-        //tmp=multiply(this->min, this->max, this->pos, mult.pos);
-        this->pos=tmp;
-    }
+    tmp=this->normalization(this->min, this->max, this->pos*mult.pos);
+    // if (mult.pos < 0){
+    //     tmp=multiply(this->min, this->max, this->pos, mult.pos*(-1));
+    //     this->pos=tmp;
+    //     this->pos=this->operator-();
+    // }
+    // else{
+    //     tmp=multiply(this->min, this->max, this->pos, mult.pos);
+    //     this->pos=tmp;
+    // }
     return (*this);
 }
 
@@ -453,42 +453,43 @@ const CircularInt operator + (const CircularInt& a, const CircularInt& b){
 //Overloading for '*' operator for hour type! (CircularInt and CircularInt)
 const CircularInt operator*(const CircularInt& a, const CircularInt& b){
 	CircularInt tmp{a.min,a.max};
-    if (b.pos>0){
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos);
-    }
-    else{
-        tmp.pos=tmp.normalization(tmp.min,tmp.max,a.pos*b.pos);
-        // tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos*(-1));
-        // tmp=tmp.operator-();
-    }
+    tmp.pos=tmp.normalization(tmp.min,tmp.max,a.pos*b.pos);
+    // if (b.pos>0){
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos);
+    // }
+    // else{
+    //     tmp.pos=tmp.normalization(tmp.min,tmp.max,a.pos*b.pos);
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, a.pos, b.pos*(-1));
+    //     tmp=tmp.operator-();
+    // }
     return tmp;
 }
 
 //Overloading for '*' operator for hour type! (int and CircularInt)
 const CircularInt operator*(const int& a, const CircularInt& b){
 	CircularInt tmp{b.min,b.max};
-    if (a > 0){
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
-    }
-    else{
-        tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
-        // tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
-        // tmp=tmp.operator-();
-    }
+    tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
+    // if (a > 0){
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
+    // }
+    // else{
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
+    //     tmp=tmp.operator-();
+    // }
     return tmp;
 }
 
 //Overloading for '*' operator for hour type! (CircularInt and int)
 const CircularInt operator*(const CircularInt& b, const int& a){
 	CircularInt tmp{b.min,b.max};
-    if (a > 0){
-        tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
-    }
-    else{
-        tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
-        // tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
-        // tmp=tmp.operator-();
-    }
+    tmp.pos=tmp.normalization(tmp.min,tmp.max,a*b.pos);
+    // if (a > 0){
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a);
+    // }
+    // else{
+    //     tmp.pos=tmp.multiply(tmp.min, tmp.max, b.pos, a*(-1));
+    //     tmp=tmp.operator-();
+    // }
     return tmp;
 }
 
